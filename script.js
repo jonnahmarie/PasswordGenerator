@@ -19,6 +19,16 @@ function writePassword() {
   var numericCharacters = confirm("Would you like to add numeric characters?");
   var specialCharacters = confirm("Would you like to add special characters?");
 
+  function generatePassword () {
+    if (passwordLength >= 8 && passwordLength <= 128) {
+      var lowercaseArr = ["abcdefghijklmnopqrstuvwxyz"].split("");
+      var uppercaseArr = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"].split("");
+      var numericArr = ["1234567890"].split("");
+      var specialCharacterArray = ["!@#$%^&*()-+=_/.,:;?"].split("");
+  } else if ((passwordLength < 8 && passwordLength > 128)) {
+    alert("Please enter a valid number for your password length.");
+  }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
