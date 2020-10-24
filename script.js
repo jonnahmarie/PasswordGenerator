@@ -11,7 +11,7 @@ function writePassword() {
   // Prompt to enter character length
 
   var passwordLength = prompt("Choose a number between 8 and 128");
-
+  
   // Criteria
 
   var lowercaseLetters = confirm("Would you like to add lowercase letters?");
