@@ -11,20 +11,13 @@ function writePassword() {
   // Prompt to enter character length
 
   var passwordLength = prompt("Choose a number between 8 and 128");
+  
+  // Criteria
 
-  // Conditions to generate password
-  function generatePassword () {
-    if (passwordLength >= 8 && passwordLength <= 128) {
-      var lowercaseLetter = confirm("Would you like to use lowercase letters?");
-      var uppercaseLetter = confirm("Would you like to use uppercase letters?");
-      var numericCharacters = confirm("Would you like to use numbers?");
-      var specialCharacters = confirm("Would you like to use special characters?");
-    } else if ((passwordLength < 8 && passwordLength > 128)) {
-      alert("Please choose a number between 8 and 128.");
-    }
-  }
-}
-
+  var lowercaseLetters = confirm("Would you like to add lowercase letters?");
+  var uppercaseLetters = confirm("Would you like to add  uppercase letters?");
+  var numericCharacters = confirm("Would you like to add numeric characters?");
+  var specialCharacters = confirm("Would you like to add special characters?");
 
 
 // Add event listener to generate button
