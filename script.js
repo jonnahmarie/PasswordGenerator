@@ -24,6 +24,7 @@ function generatePassword () {
   var symbolInput;
     
   // User Validation
+
   // while (passwordLength < 8 || passwordLength > 128) {
   //   prompt("Please enter a valid character number. How many characters would you like your password to be? (Min. 8, Max. 128");
   //   if (passwordLength >= 8 || passwordLength <= 128) {
@@ -37,7 +38,6 @@ function generatePassword () {
   if (passwordLength > 128) {
     alert("Are you okay? Your password must be less than 128 characters. Try again!!!");
     return;
-  }
 
   if (passwordLength >= 8 || passwordLength <= 128) {
     // Continues with user input of password criteria
@@ -50,7 +50,7 @@ function generatePassword () {
     // character types
     var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz".split("");
     var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    var numCharacters = [1,2,3,4,5,6,7,8,9];
+    var numCharacters = [1,2,3,4,5,6,7,8,9,0];
     var symbolCharacters = "!@#$%^&*()_+-={}[]\|:<>?;',./".split("");
     var passwordOutput;
       
@@ -127,3 +127,4 @@ function generatePassword () {
 function userPassword(passwordString) {
   document.getElementById("password").textContent = passwordString;
 }
+
