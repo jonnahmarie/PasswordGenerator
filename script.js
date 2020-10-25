@@ -10,10 +10,10 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword());
+generateBtn.addEventListener("click", generatePassword);
+
 
 function generatePassword () {
-
   // Define user input variables
   var passwordLength = parseInt(prompt("How many characters would you like your password to be? (Min. 8, Max. 128)"));
   var lowerInput;
@@ -22,27 +22,26 @@ function generatePassword () {
   var symbolInput;
     
   // User Validation
-  while ((passwordLength < 8 || passwordLength > 128)) {
+  while (passwordLength < 8 || passwordLength > 128) {
     prompt("Please enter a valid character number. How many characters would you like your password to be? (Min. 8, Max. 128");
-    
+    if (passwordLength >= 8 || passwordLength <= 128) {
+      break;
+    }
+  }
+
   if (passwordLength >= 8 || passwordLength <= 128) {
     // Continues with user input of password criteria
-    
     lowerInput = confirm("Would you like to include lowercase letters?");
     upperInput = confirm("Would you like to include uppercase letters?");
     numInput = confirm("Would you like to include numbers?");
     symbolInput = confirm("Would you like to include any special characters?");
     }
-  } 
-    
+  
     // character types
-    
     var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz".split("");
     var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var numCharacters = parseInt("1234567890".split(""));
     var symbolCharacters = "!@#$%^&*()_+-={}[]\|:<>?;',./".split("");
-    
-    var passwordOutput;
       
     // if all criteria were selected
     if (!lowerInput && !upperInput && !numInput && !symbolInput) {
