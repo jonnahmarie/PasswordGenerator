@@ -24,11 +24,19 @@ function generatePassword () {
   var symbolInput;
     
   // User Validation
-  while (passwordLength < 8 || passwordLength > 128) {
-    prompt("Please enter a valid character number. How many characters would you like your password to be? (Min. 8, Max. 128");
-    if (passwordLength >= 8 || passwordLength <= 128) {
-      break;
-    }
+  // while (passwordLength < 8 || passwordLength > 128) {
+  //   prompt("Please enter a valid character number. How many characters would you like your password to be? (Min. 8, Max. 128");
+  //   if (passwordLength >= 8 || passwordLength <= 128) {
+  //     break;
+  //   }
+  // }
+  if (passwordLength < 8) {
+    alert("Your password must be at least 8 characters long. Try again.");
+    return;
+  }
+  if (passwordLength > 128) {
+    alert("Are you okay? Your password must be less than 128 characters. Try again!!!");
+    return;
   }
 
   if (passwordLength >= 8 || passwordLength <= 128) {
@@ -42,13 +50,14 @@ function generatePassword () {
     // character types
     var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz".split("");
     var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    var numCharacters = [1,2,3,4,5,6,7,8,9,0];
+    var numCharacters = [1,2,3,4,5,6,7,8,9];
     var symbolCharacters = "!@#$%^&*()_+-={}[]\|:<>?;',./".split("");
     var passwordOutput;
       
     // if all criteria were selected
     if ((passwordLength == null) && !lowerInput && !upperInput && !numInput && !symbolInput) {
       alert("Please choose criteria in order to generate this password!");
+      return;
     }
     else if (lowerInput && upperInput && numInput && symbolInput) {
       passwordOutput = symbolCharacters.concat(lowercaseLetters, uppercaseLetters, numCharacters);
@@ -109,5 +118,12 @@ function generatePassword () {
     var finalRandomPassword = randomPasswordArray.join();
     console.log(randomPasswordArray)
 
+    passwordString = randomPasswordArray.join("");
+
+    userPassword(passwordString);
   return;
+}
+
+function userPassword(passwordString) {
+  document.getElementById("password").textContent = passwordString;
 }
