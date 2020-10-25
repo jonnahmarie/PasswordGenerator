@@ -5,12 +5,14 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  // passwordText.value = password;
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  writePassword();
+});
 
 
 function generatePassword () {
@@ -40,62 +42,72 @@ function generatePassword () {
     // character types
     var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz".split("");
     var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-    var numCharacters = parseInt("1234567890".split(""));
+    var numCharacters = [1,2,3,4,5,6,7,8,9,0];
     var symbolCharacters = "!@#$%^&*()_+-={}[]\|:<>?;',./".split("");
+    var passwordOutput;
       
     // if all criteria were selected
-    if (!lowerInput && !upperInput && !numInput && !symbolInput) {
+    if ((passwordLength == null) && !lowerInput && !upperInput && !numInput && !symbolInput) {
       alert("Please choose criteria in order to generate this password!");
     }
     else if (lowerInput && upperInput && numInput && symbolInput) {
       passwordOutput = symbolCharacters.concat(lowercaseLetters, uppercaseLetters, numCharacters);
     }
     // if 3 criteria were selected
-    else if (!lowerInput && upperInput && numInput && symbolInput) {
+    else if (upperInput && numInput && symbolInput) {
       passwordOutput = symbolCharacters.concat(uppercaseLetters, numCharacters);
     }
-    else if (lowerInput && !upperInput && numInput && symbolInput) {
+    else if (lowerInput && numInput && symbolInput) {
       passwordOutput = symbolCharacters.concat(lowercaseLetters, numCharacters);
     }
-    else if (lowerInput && upperInput && !numInput && symbolInput) {
+    else if (lowerInput && upperInput && symbolInput) {
       passwordOutput = symbolCharacters.concat(lowercaseLetters, uppercaseLetters);
     }
-    else if (lowerInput && upperInput && numInput && !symbolInput) {
+    else if (lowerInput && upperInput && numInput) {
       passwordOutput = lowercaseLetters.concat(uppercaseLetters, numCharacters);
     }
     // if 2 criteria were selected
-    else if (lowerInput && upperInput && !numInput && !symbolInput) {
+    else if (lowerInput && upperInput) {
       passwordOutput = lowercaseLetters.concat(uppercaseLetters);
     }
-    else if (!lowerInput && !upperInput && numInput && symbolInput) {
+    else if (numInput && symbolInput) {
       passwordOutput = numCharacters.concat(symbolCharacters);
     }
-    else if (!lowerInput && upperInput && numInput && !symbolInput) {
+    else if (upperInput && numInput) {
       passwordOutput = uppercaseLetters.concat(numCharacters);
     }
-    else if (lowerInput && !upperInput && !numInput && symbolInput) {
+    else if (lowerInput && symbolInput) {
       passwordOutput = lowercaseLetters.concat(symbolCharacters);
     }
-    else if (lowerInput && !upperInput && numInput && !symbolInput) {
+    else if (lowerInput && numInput) {
       passwordOutput = lowercaseLetters.concat(numCharacters);
     }
-    else if (!lowerInput && upperInput && !numInput && symbolInput) {
+    else if (upperInput && symbolInput) {
       passwordOutput = uppercaseLetters.concat(symbolCharacters);
     }
     // if 1 criteria were selected
-    else if (lowerInput && !upperInput && !numInput && !symbolInput) {
+    else if (lowerInput) {
       passwordOutput = lowercaseLetters;
     }
-    else if (!lowerInput && upperInput && !numInput && !symbolInput) {
+    else if (upperInput) {
       passwordOutput = uppercaseLetters;
     }
-    else if (!lowerInput && !upperInput && numInput && !symbolInput) {
+    else if (numInput) {
       passwordOutput = numCharacters;
     }
-    else if (!lowerInput && !upperInput && !numInput && symbolInput) {
+    else if (symbolInput) {
       passwordOutput = symbolCharacters;
     }
+
+    var randomPasswordArray = []; //placeholder
+
+    for (var i = 0; i < passwordLength; i++) {
+      var randomized = passwordOutput[Math.floor(Math.random() * passwordOutput.length)];
+      randomPasswordArray.push(randomized);
+    }
+
+    var finalRandomPassword = randomPasswordArray.join();
+    console.log(randomPasswordArray)
+
+  return;
 }
-
-
-
