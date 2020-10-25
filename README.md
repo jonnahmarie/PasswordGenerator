@@ -1,17 +1,18 @@
 # Password Generator
 
-This project aimed to use JavaScript to create a random password generater that would generate a string of random characters based on criteria the user had selected.
+This project aimed to create a random string of characters via a password generator based on criteria that a user selected.
 
-Users can choose:
+Users can select:
+* Password character length (between 8-128 characters)
+* Character types, such as:
+  - Uppercase letters
+  - Lowercase letters
+  - Numeric characters
+  - Symbols
 
-* Password character length must be specified to be between 8 and 128 characters
-* Type of characters used such as
+The project made use of JavaScript to enable this output via an addEventListener on the generate button.
 
-- lowercase letters
-- uppercase letters
-- numeric characters
-- special symbol characters
+[Live Website](https://jonnahmarie.github.io/PasswordGenerator/)
 
-The generator generates a password based on specific selected criteria.
-
-
+Demo Gif of Random Password Generator:
+![Password Generator Gif](PasswordGeneratorGif.gif)
