@@ -16,4 +16,3 @@ The project made use of JavaScript to enable this output via an addEventListener
 
 Demo Gif of Random Password Generator:
 ![Password Generator Gif](PasswordGeneratorGif.gif)
-
