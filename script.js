@@ -24,6 +24,7 @@ function generatePassword () {
   var symbolInput;
     
   // User Validation
+
   // while (passwordLength < 8 || passwordLength > 128) {
   //   prompt("Please enter a valid character number. How many characters would you like your password to be? (Min. 8, Max. 128");
   //   if (passwordLength >= 8 || passwordLength <= 128) {
@@ -37,7 +38,6 @@ function generatePassword () {
   if (passwordLength > 128) {
     alert("Are you okay? Your password must be less than 128 characters. Try again!!!");
     return;
-  }
 
   if (passwordLength >= 8 || passwordLength <= 128) {
     // Continues with user input of password criteria
