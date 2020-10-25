@@ -15,4 +15,4 @@ The project made use of JavaScript to enable this output via an addEventListener
 [Live Website](https://jonnahmarie.github.io/PasswordGenerator/)
 
 Demo Gif of Random Password Generator:
-![Password Generator Gif](PasswordGeneratorGif.gif)
+![Password Generator Gif](PasswordGeneratorFinal.gif)
