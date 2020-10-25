@@ -38,6 +38,7 @@ function generatePassword () {
   if (passwordLength > 128) {
     alert("Are you okay? Your password must be less than 128 characters. Try again!!!");
     return;
+  }
 
   if (passwordLength >= 8 || passwordLength <= 128) {
     // Continues with user input of password criteria
